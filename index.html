@@ -1,0 +1,486 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Professionals NZ — Website Audit</title>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,wght@0,400;0,500;0,600;1,400;1,500;1,600&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --charcoal: #373D40;
+    --cream: #ECE7DC;
+    --ruby: #FF4753;
+    --ruby-soft: rgba(255, 71, 83, 0.08);
+    --ruby-border: rgba(255, 71, 83, 0.2);
+    --charcoal-light: #4a5154;
+    --charcoal-muted: #6b7275;
+    --white: #ffffff;
+    --border: rgba(55, 61, 64, 0.1);
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Poppins', sans-serif;
+    background: var(--cream);
+    color: var(--charcoal);
+    font-size: 15px;
+    line-height: 1.7;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* --- HEADER --- */
+  .header {
+    background: var(--charcoal);
+    padding: 40px 0 48px;
+    position: relative;
+    overflow: hidden;
+  }
+  .header::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: var(--ruby);
+  }
+  .header-inner {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0 32px;
+  }
+  .header-label {
+    font-family: 'Poppins', sans-serif;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    color: var(--ruby);
+    margin-bottom: 16px;
+  }
+  .header h1 {
+    font-family: 'Source Serif 4', serif;
+    font-weight: 500;
+    font-size: 38px;
+    color: var(--white);
+    line-height: 1.25;
+    margin-bottom: 6px;
+  }
+  .header h1 em {
+    color: var(--ruby);
+    font-style: italic;
+  }
+  .header-meta {
+    font-size: 13px;
+    color: var(--charcoal-muted);
+    margin-top: 20px;
+    display: flex;
+    gap: 24px;
+    flex-wrap: wrap;
+  }
+  .header-meta span {
+    color: rgba(255,255,255,0.45);
+  }
+
+  /* --- MAIN --- */
+  .main {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 48px 32px 80px;
+  }
+
+  /* --- INTRO --- */
+  .intro {
+    font-size: 16px;
+    line-height: 1.8;
+    color: var(--charcoal-light);
+    margin-bottom: 48px;
+    padding-bottom: 40px;
+    border-bottom: 1px solid var(--border);
+  }
+  .intro strong { color: var(--charcoal); }
+
+  /* --- SECTIONS --- */
+  .section {
+    margin-bottom: 48px;
+  }
+  .section-title {
+    font-family: 'Source Serif 4', serif;
+    font-weight: 600;
+    font-size: 24px;
+    color: var(--charcoal);
+    margin-bottom: 28px;
+    padding-bottom: 12px;
+    border-bottom: 2px solid var(--charcoal);
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  /* --- CARDS --- */
+  .card {
+    background: var(--white);
+    border-radius: 8px;
+    padding: 28px 28px 24px;
+    margin-bottom: 16px;
+    border: 1px solid var(--border);
+    position: relative;
+    transition: box-shadow 0.2s ease;
+  }
+  .card:hover {
+    box-shadow: 0 2px 12px rgba(55, 61, 64, 0.06);
+  }
+  .card-number {
+    font-family: 'Poppins', sans-serif;
+    font-size: 11px;
+    font-weight: 700;
+    color: var(--charcoal-muted);
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    margin-bottom: 6px;
+  }
+  .card h3 {
+    font-family: 'Source Serif 4', serif;
+    font-weight: 600;
+    font-size: 18px;
+    color: var(--charcoal);
+    margin-bottom: 12px;
+    line-height: 1.35;
+  }
+  .card p {
+    color: var(--charcoal-light);
+    font-size: 14px;
+    line-height: 1.75;
+  }
+  .card p + p {
+    margin-top: 10px;
+  }
+  .card .sub-point {
+    background: var(--cream);
+    border-radius: 6px;
+    padding: 14px 18px;
+    margin-top: 12px;
+    font-size: 13px;
+    color: var(--charcoal-light);
+    line-height: 1.7;
+    border-left: 3px solid var(--ruby-border);
+  }
+  .card .sub-point strong {
+    color: var(--charcoal);
+  }
+
+  /* Tag pills */
+  .tag {
+    display: inline-block;
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    padding: 3px 10px;
+    border-radius: 4px;
+    margin-bottom: 10px;
+  }
+  .tag-brand {
+    background: var(--ruby-soft);
+    color: var(--ruby);
+  }
+  .tag-ux {
+    background: rgba(55, 61, 64, 0.07);
+    color: var(--charcoal-muted);
+  }
+  .tag-seo {
+    background: rgba(255, 167, 38, 0.1);
+    color: #d48800;
+  }
+  .tag-ui {
+    background: rgba(66, 133, 244, 0.1);
+    color: #3367d6;
+  }
+
+  /* --- HIGHLIGHT CARD (AI imagery) --- */
+  .card-highlight {
+    border-left: 4px solid var(--ruby);
+    background: linear-gradient(135deg, var(--white) 0%, rgba(255,71,83,0.02) 100%);
+  }
+  .card-highlight .guideline-quote {
+    font-family: 'Source Serif 4', serif;
+    font-style: italic;
+    font-size: 14px;
+    color: var(--charcoal-light);
+    padding: 16px 20px;
+    background: var(--cream);
+    border-radius: 6px;
+    margin: 14px 0;
+    line-height: 1.7;
+  }
+  .card-highlight .action-note {
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--ruby);
+    margin-top: 12px;
+  }
+
+  /* --- COMPARISON TABLE --- */
+  .comparison {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 8px;
+    font-size: 13px;
+  }
+  .comparison thead th {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    font-size: 11px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: var(--charcoal-muted);
+    text-align: left;
+    padding: 12px 16px;
+    border-bottom: 2px solid var(--charcoal);
+  }
+  .comparison tbody td {
+    padding: 12px 16px;
+    border-bottom: 1px solid var(--border);
+    vertical-align: top;
+    color: var(--charcoal-light);
+  }
+  .comparison tbody tr:last-child td { border-bottom: none; }
+  .comparison .site-col { font-weight: 500; color: var(--charcoal); }
+  .tick { color: #2e7d32; }
+  .cross { color: var(--ruby); }
+
+  /* --- FOOTER --- */
+  .footer {
+    background: var(--charcoal);
+    padding: 32px 0;
+    text-align: center;
+  }
+  .footer p {
+    font-size: 12px;
+    color: rgba(255,255,255,0.35);
+    letter-spacing: 0.5px;
+  }
+
+  /* --- RESPONSIVE --- */
+  @media (max-width: 640px) {
+    .header h1 { font-size: 28px; }
+    .header-meta { flex-direction: column; gap: 6px; }
+    .card { padding: 22px 20px; }
+    .section-title { font-size: 20px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <div class="header-inner">
+    <div class="header-label">Website Audit</div>
+    <h1>Professionals <em>New Zealand</em></h1>
+    <div class="header-meta">
+      <span>professionals.co.nz</span>
+      <span>Benchmarked against professionals.com.au</span>
+      <span>February 2026</span>
+    </div>
+  </div>
+</div>
+
+<div class="main">
+
+  <div class="intro">
+    An audit of the NZ website against the signed-off AU site and <strong>Brand Guidelines V1.1</strong>. The site has adopted several elements of the 2025 rebrand well — the Ruby Red accent, the Charcoal base, and the italic headline treatment are all present on the homepage. However, there are consistency gaps, UX issues, and a few missed opportunities that should be addressed to bring it in line with the AU benchmark.
+  </div>
+
+  <!-- ============ HOMEPAGE ============ -->
+  <div class="section">
+    <h2 class="section-title">Homepage</h2>
+
+    <div class="card">
+      <span class="tag tag-brand">Brand</span>
+      <div class="card-number">01</div>
+      <h3>The 29° Slash is Missing — Everywhere</h3>
+      <p>No sign of the Professionals slash anywhere on the site. This is one of our most recognisable visual elements — born from the Open Door P — and it's used extensively across the AU site on property cards, hero imagery, and listing tiles. Its absence here makes the NZ site feel disconnected from the wider brand identity.</p>
+      <div class="sub-point">
+        <strong>Same applies to listing cards</strong> — the AU site uses the slash crop on property photography. The NZ cards don't. Curious to know the thinking behind the omission.
+      </div>
+    </div>
+
+    <div class="card">
+      <span class="tag tag-brand">Brand</span>
+      <div class="card-number">02</div>
+      <h3>Header Implementation</h3>
+      <p>The AU site separates the logomark (P) and wordmark beautifully in the header — it's distinctive and gives the brand real presence. The NZ site uses a single combined logo image. Can we implement the AU header approach here?</p>
+    </div>
+
+    <div class="card">
+      <span class="tag tag-ux">UX</span>
+      <div class="card-number">03</div>
+      <h3>Search Form Feels Overwhelming</h3>
+      <p>The search form on the NZ homepage exposes a lot of fields at once — region, district, suburb, property type, price min/max, beds, baths, cars, floor area, land area — all visible on load. Compared to the AU site's cleaner approach with progressive disclosure (simple bar + "Advanced" toggle), this feels cluttered and could be off-putting for casual browsers.</p>
+    </div>
+
+    <div class="card">
+      <span class="tag tag-ux">UX</span> <span class="tag tag-seo">SEO</span>
+      <div class="card-number">04</div>
+      <h3>No Featured Properties on Homepage</h3>
+      <p>No property listings visible on the homepage. The search form is up top, but there are no visuals or demonstration that properties are actively being listed and sold. The AU site has a prominent "Places We Love" section with tabs for For Sale, Sold, For Rent, and Leased. This is likely hurting SEO as well as first-impression engagement.</p>
+    </div>
+
+    <div class="card">
+      <span class="tag tag-ux">UX</span>
+      <div class="card-number">05</div>
+      <h3>No Stats or Social Proof Section</h3>
+      <p>The AU site features a strong stats bar — settlements, total sales value, charity donations. This kind of social proof builds immediate trust and scale perception. The NZ site has no equivalent. Worth adding NZ-specific numbers to reinforce credibility.</p>
+    </div>
+
+    <div class="card">
+      <span class="tag tag-ui">UI</span>
+      <div class="card-number">06</div>
+      <h3>"How Can We Help" — Icons Don't Read as Buttons</h3>
+      <p>The icon panel for Find an Office / Find a Salesperson / Find a Property Manager isn't immediately clear that these are clickable. Needs better hover states, visual affordance, and possibly a subtle background or border treatment to signal interactivity.</p>
+    </div>
+
+    <div class="card">
+      <span class="tag tag-ui">UI</span> <span class="tag tag-brand">Brand</span>
+      <div class="card-number">07</div>
+      <h3>News &amp; Insights Cards Need Work</h3>
+      <p>A few issues with the article cards on the homepage:</p>
+      <div class="sub-point"><strong>Headlines feel too small</strong> — they don't command enough attention at the current size.</div>
+      <div class="sub-point"><strong>"Read More" button isn't flexible</strong> — when paragraphs are shorter, it leaves big awkward gaps beneath the text. The button should sit closer to the content.</div>
+      <div class="sub-point"><strong>Typography inconsistency</strong> — the News &amp; Insights section uses Poppins for headlines, but the rest of the homepage uses Source Serif 4. This creates a wonky, disconnected feel between sections on the same page.</div>
+      <div class="sub-point"><strong>Blog on a separate subdomain</strong> — content lives at <code>content.professionals.co.nz/blog</code>, which is a separate subdomain from the main site. The AU site keeps blog content on the main domain. Flagging this for SEO — splitting content across subdomains can dilute domain authority.</div>
+    </div>
+
+    <div class="card">
+      <span class="tag tag-ui">UI</span>
+      <div class="card-number">08</div>
+      <h3>Subscribe CTA Panel</h3>
+      <p>The subscribe/newsletter panel feels lost and underwhelming. There's an opportunity to make much more of this — a stronger visual treatment, clearer value proposition, and better placement could significantly improve conversion.</p>
+    </div>
+
+    <div class="card">
+      <span class="tag tag-ux">UX</span>
+      <div class="card-number">09</div>
+      <h3>Footer &amp; Navigation Consistency</h3>
+      <p>The footer needs some refinement — it feels a bit lacking overall. There's also a UX consideration around navigation grouping: the top nav dropdown for "About Us" includes contact links, but the footer separates "About" and "Contact" into distinct sections. So the same content is grouped differently depending on where you look. Just a small thing, but worth tidying up for clarity.</p>
+      <div class="sub-point"><strong>Social icons need hover states</strong> — currently no visual feedback on interaction.</div>
+    </div>
+
+  </div>
+
+  <!-- ============ ABOUT US ============ -->
+  <div class="section">
+    <h2 class="section-title">About Us Page</h2>
+
+    <div class="card">
+      <span class="tag tag-ui">UI</span>
+      <div class="card-number">10</div>
+      <h3>Header Legibility Issues</h3>
+      <p>The heading and subheading in the page hero are hard to read. Likely a contrast or weight issue against the background. This is the first thing a visitor sees — needs to be sharp and clear.</p>
+    </div>
+
+    <div class="card">
+      <span class="tag tag-ui">UI</span>
+      <div class="card-number">11</div>
+      <h3>Irregular Section Padding</h3>
+      <p>Inconsistent padding above and below the second section of the page. Creates an unpolished feel — spacing should be uniform and considered throughout.</p>
+    </div>
+
+  </div>
+
+  <!-- ============ ADDITIONAL ============ -->
+  <div class="section">
+    <h2 class="section-title">Additional Findings</h2>
+
+    <div class="card card-highlight">
+      <span class="tag tag-brand">Brand</span>
+      <div class="card-number">12</div>
+      <h3>AI-Generated Imagery on Homepage</h3>
+      <p>The homepage features images generated by Google Gemini — identifiable from the filenames (<code>Gemini_Generated_Image_...</code>). The Brand Guidelines are explicit on photography standards:</p>
+      <div class="guideline-quote">
+        "The photography must feel modern, fresh, human, professional and approachable… must not feel staged… must not have any special effects, filters or colour grading."
+        <br><small>— Brand Guidelines V1.1, Section 12</small>
+      </div>
+      <p>AI-generated people images can undermine the brand's principle of authenticity and trustworthiness. The AU site uses real photography throughout.</p>
+      <p class="action-note">Action: At minimum, rename the image files so the AI origin isn't discoverable. Longer term, commission or source real photography that meets the guidelines.</p>
+    </div>
+
+  </div>
+
+  <!-- ============ QUICK REFERENCE ============ -->
+  <div class="section">
+    <h2 class="section-title">Quick Reference: NZ vs AU</h2>
+
+    <div class="card" style="padding: 0; overflow: hidden;">
+      <table class="comparison">
+        <thead>
+          <tr>
+            <th style="width:40%">Element</th>
+            <th style="width:30%">AU Site</th>
+            <th style="width:30%">NZ Site</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="site-col">29° Slash on imagery</td>
+            <td><span class="tick">✓</span> Throughout</td>
+            <td><span class="cross">✗</span> Not implemented</td>
+          </tr>
+          <tr>
+            <td class="site-col">Separated P logomark in header</td>
+            <td><span class="tick">✓</span> Distinctive</td>
+            <td><span class="cross">✗</span> Combined image</td>
+          </tr>
+          <tr>
+            <td class="site-col">Featured property listings</td>
+            <td><span class="tick">✓</span> Prominent section</td>
+            <td><span class="cross">✗</span> None on homepage</td>
+          </tr>
+          <tr>
+            <td class="site-col">Stats / social proof</td>
+            <td><span class="tick">✓</span> Strong bar</td>
+            <td><span class="cross">✗</span> Missing</td>
+          </tr>
+          <tr>
+            <td class="site-col">Search UX</td>
+            <td><span class="tick">✓</span> Progressive disclosure</td>
+            <td><span class="cross">✗</span> All fields exposed</td>
+          </tr>
+          <tr>
+            <td class="site-col">Typography consistency</td>
+            <td><span class="tick">✓</span> Uniform</td>
+            <td><span class="cross">✗</span> Mixed across sections</td>
+          </tr>
+          <tr>
+            <td class="site-col">Blog on main domain</td>
+            <td><span class="tick">✓</span> Integrated</td>
+            <td><span class="cross">✗</span> Separate subdomain</td>
+          </tr>
+          <tr>
+            <td class="site-col">Real photography</td>
+            <td><span class="tick">✓</span> Throughout</td>
+            <td><span class="cross">✗</span> AI-generated on homepage</td>
+          </tr>
+          <tr>
+            <td class="site-col">Ruby Red italic headlines</td>
+            <td><span class="tick">✓</span> Applied</td>
+            <td><span class="tick">✓</span> Applied</td>
+          </tr>
+          <tr>
+            <td class="site-col">Charcoal base colour</td>
+            <td><span class="tick">✓</span> Strong</td>
+            <td><span class="tick">✓</span> Used in header/footer</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+</div>
+
+<div class="footer">
+  <p>Professionals Brand Audit — Confidential — February 2026</p>
+</div>
+
+</body>
+</html>
